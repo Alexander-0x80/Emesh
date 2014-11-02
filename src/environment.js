@@ -171,7 +171,7 @@ var keywords = {
     },
 
     "loop": {
-        // Loop keyword
+        // Loop
         // -------------------------------------
         // Usage     : loop(true, 1)
         // Returns   : false
@@ -190,9 +190,9 @@ var keywords = {
     },
 
     "->": {
-        // Universal function keyword
+        // Universal function
         // -------------------------------------
-        // Usage     : ->(expr, expr, expr, ...)
+        // Usage     : ->(expr, expr, expr, ... )
         // Returns   : Produced value of last argument
         // Arguments : Expressions list
 
@@ -211,7 +211,7 @@ var keywords = {
     },
 
     "def": {
-        // Variable definition keyword
+        // Variable declaration
         // -------------------------------------
         // Usage     : def(a, 10)
         // Returns   : Value of defined variable
@@ -229,7 +229,7 @@ var keywords = {
     },
 
     "out": {
-        // Output keyword
+        // Output
         // -------------------------------------
         // Usage     : out("hello world")
         // Returns   : Output to stdout
@@ -239,16 +239,17 @@ var keywords = {
         error_msg: "",
         handler: function(args, env) {
             console.log(this.evaluate(args[0], env));
+            return true;
         }
     },
 
     "fun": {
-        // Function definition keyword
+        // Function declaration
         // -------------------------------------
-        // Usage     : fun(name, body)
+        // Usage     : fun(arguments *n , body)
         // Returns   : Function
-        // Arguments : args[0] - Function name
-        //             args[1] - Function body
+        // Arguments : args[0..n] - Function arguments
+        //             args[last] - Function body
 
         arguments: Infinity,
         error_msg: "Function declaration without a function_body.",

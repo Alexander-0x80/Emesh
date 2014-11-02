@@ -22,7 +22,7 @@ function wait_for_command() {
 
         try {
             var result = emesh.run(source);
-            if (result) { console.log(result) }
+            console.log(result);
         } catch (err) {
             console.log("\033[31m" + err.toString() + "\033[0m");   // Red
         }
