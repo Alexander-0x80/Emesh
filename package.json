@@ -1,0 +1,15 @@
+{
+  "name": "Emesh",
+  "version": "0.0.1",
+  "description": "Toy programming language",
+  "main": "repl.js",
+  "scripts": {
+    "test": "node node_modules/.bin/mocha -R spec"
+  },
+  "author": "Alexander Ovchinnikov",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "mocha": "^2.0.1"
+  }
+}
