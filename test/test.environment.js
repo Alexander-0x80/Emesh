@@ -9,7 +9,7 @@ describe("Environment:", function(){
     var keywords = environment.keywords;
     var base = environment.base;
 
-    it("Addition of two numbers or more.", 
+    it("Addition operator", 
         function(){
             var args = [
                 new Expression("value", 3) ,
@@ -21,7 +21,7 @@ describe("Environment:", function(){
                 .should.equal(6);
     });
 
-    it("Substraction of two numbers or more.", 
+    it("Substraction operator", 
         function(){
             var args = [
                 new Expression("value", 3) ,
@@ -33,7 +33,7 @@ describe("Environment:", function(){
                 .should.equal(0);
     });
 
-    it("Multiplication of two numbers or more.", 
+    it("Multiplication operator", 
         function(){
             var args = [
                 new Expression("value", 3) ,
@@ -45,7 +45,7 @@ describe("Environment:", function(){
                 .should.equal(6);
     });
 
-    it("Power of two numbers.", 
+    it("Power operator", 
         function(){
             var args = [
                 new Expression("value", 2) ,
@@ -56,7 +56,7 @@ describe("Environment:", function(){
                 .should.equal(16);
     });
 
-    it("Division of two numbers.", 
+    it("Division operator", 
         function(){
             var args = [
                 new Expression("value", 12) ,
@@ -67,7 +67,7 @@ describe("Environment:", function(){
                 .should.equal(2.4);
     });
 
-    it("Remainder of two numbers.", 
+    it("Remainder operator", 
         function(){
             var args = [
                 new Expression("value", 12) ,
@@ -78,7 +78,7 @@ describe("Environment:", function(){
                 .should.equal(2);
     });
 
-    it("Equality of two or more objects",
+    it("Equality operator",
         function(){
             var args = [
                 new Expression("apply", "==", new Expression("word", "=="),
@@ -91,39 +91,69 @@ describe("Environment:", function(){
                 .should.equal(true);
     });
 
-    it("Bigger number", 
+    describe("Greater than operator", 
         function(){
-            var args = [
-                new Expression("value", 12) ,
-                new Expression("value", 5) 
-            ];
+            it("Should return true when left operand is bigger",
+            function(){
+                var args = [
+                    new Expression("value", 12) ,
+                    new Expression("value", 5) 
+                ];
 
-            keywords[">"].handler.call(interpreter, args, Object.create(base))
-                .should.equal(true);
+                keywords[">"].handler.call(interpreter, args, Object.create(base))
+                    .should.equal(true);
+            });
+
+            it("Should return false when left operand is smaller",
+            function(){
+                var args = [
+                    new Expression("value", 5) ,
+                    new Expression("value", 12) 
+                ];
+
+                keywords[">"].handler.call(interpreter, args, Object.create(base))
+                    .should.equal(false);
+            });
+
+
     });
 
-    it("Smaller number", 
+    describe("Less than operator",
         function(){
-            var args = [
-                new Expression("value", 5) ,
-                new Expression("value", 12) 
-            ];
+            it("Should return true when left operator is smaller",
+            function(){
+                var args = [
+                    new Expression("value", 5) ,
+                    new Expression("value", 12) 
+                ];
 
-            keywords["<"].handler.call(interpreter, args, Object.create(base))
-                .should.equal(true);
+                keywords["<"].handler.call(interpreter, args, Object.create(base))
+                    .should.equal(true);
+            });
+
+            it("Should return false when left operator is bigger",
+            function(){
+                var args = [
+                    new Expression("value", 12) ,
+                    new Expression("value", 5) 
+                ];
+
+                keywords["<"].handler.call(interpreter, args, Object.create(base))
+                    .should.equal(false);
+            });
     });
 
-    /*it("Condition true",
+    /*it("Condition operator",
         function(){
             var args = [
                 new Expression("apply", "?", new Expression("word", "?"),
-                    [ new Expression("value", 2), 
-                      new Expression("value", 2),
+                    [ new Expression("value", true), 
+                      new Expression("value", 1),
                       new Expression("value", 2) ])
             ];
 
-            keywords["=="].handler.call(interpreter, args, Object.create(base))
-                .should.equal(true);
+            keywords["?"].handler.call(interpreter, args, Object.create(base))
+                .should.equal(1);
     });*/
 
 });

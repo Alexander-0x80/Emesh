@@ -7,6 +7,12 @@ var base = {
 
 var keywords = {
     "+": {
+        // Addition operator
+        // -------------------------------------
+        // Usage     : +(1, 1, 1, ...)
+        // Returns   : Sum of all arguments
+        // Arguments : List of numbers
+
         arguments: Infinity,
         error_msg: "",
         handler: function(args, env) {
@@ -19,6 +25,12 @@ var keywords = {
     },
 
     "-": {
+        // Substraction operator
+        // -------------------------------------
+        // Usage     : -(1, 1, 1, ...)
+        // Returns   : Difference of all arguments
+        // Arguments : List of numbers
+
         arguments: Infinity,
         error_msg: "",
         handler: function(args, env) {
@@ -31,6 +43,12 @@ var keywords = {
     },
 
     "*": {
+        // Multiplication operator
+        // -------------------------------------
+        // Usage     : *(1, 1, 1, ...)
+        // Returns   : Product of all arguments
+        // Arguments : List of numbers
+
         arguments: Infinity,
         error_msg: "",
         handler: function(args, env) {
@@ -42,7 +60,14 @@ var keywords = {
         }
     },
 
-    "**": { 
+    "**": {
+        // Power  operator
+        // -------------------------------------
+        // Usage     : **(2, 4)
+        // Returns   : Power of two arguments
+        // Arguments : args[0] - Base
+        //             args[1] - Exponent
+
         arguments: 2,
         error_msg: "Bad number of arguments in '*'",
         handler: function(args, env) {
@@ -51,6 +76,13 @@ var keywords = {
     },
 
     "/": {
+        // Division operator
+        // -------------------------------------
+        // Usage     : /(10, 5)
+        // Returns   : Quotient of two arguments
+        // Arguments : args[0] - Devidend
+        //             args[1] - Divisor
+
         arguments: 2,
         error_msg: "Bad number of arguments in '/'",
         handler: function(args, env) {
@@ -59,6 +91,13 @@ var keywords = {
     },
 
     "%": {
+        // Remainder operator
+        // -------------------------------------
+        // Usage     : %(10, 3)
+        // Returns   : Modulo of two arguments
+        // Arguments : args[0] - Devidend
+        //             args[1] - Divisor
+
         arguments: 2,
         error_msg: "Bad number of arguments in '%'",
         handler: function(args, env) {
@@ -67,6 +106,12 @@ var keywords = {
     },
 
     "==": {
+        // Equality operator
+        // -------------------------------------
+        // Usage     : ==(1, 1, 1, ...)
+        // Returns   : true if all objects are equal, false otherwise
+        // Arguments : List of objects for comparison
+
         arguments: Infinity,
         error_msg: "",
         handler: function(args, env) {
@@ -78,6 +123,13 @@ var keywords = {
     },
 
     "<": {
+        // Less than operator
+        // -------------------------------------
+        // Usage     : <(4, 10)
+        // Returns   : True if args[0] is less than args[1]
+        // Arguments : args[0] - Left operand
+        //             args[1] - Right operand
+
         arguments: 2,
         error_msg: "Bad number of arguments in '<'",
         handler: function(args, env) {
@@ -86,6 +138,13 @@ var keywords = {
     },
 
     ">": {
+        // Less than operator
+        // -------------------------------------
+        // Usage     : >(10, 4)
+        // Returns   : True if args[0] is greater than args[1]
+        // Arguments : args[0] - Left operand
+        //             args[1] - Right operand
+
         arguments: 2,
         error_msg: "Bad number of arguments in '>'",
         handler: function(args, env) {
@@ -94,6 +153,14 @@ var keywords = {
     },
 
     "?": {
+        // Condition operator
+        // -------------------------------------
+        // Usage     : ?(true, 1, 2)
+        // Returns   : args[1] if args[0] is true , args[2] otherwise
+        // Arguments : args[0] - Condition
+        //             args[1] - Evaluated when condition is true
+        //             args[2] - Evaluated when condition is false
+
         arguments: 3,
         error_msg: "Bad number of arguments in condition.",
         handler: function(args, env) {
@@ -104,6 +171,13 @@ var keywords = {
     },
 
     "loop": {
+        // Loop keyword
+        // -------------------------------------
+        // Usage     : loop(true, 1)
+        // Returns   : false
+        // Arguments : args[0] - Condition
+        //             args[1] - Body
+
         arguments: 2,
         error_msg: "Bad number of arguments in while.",
         handler: function(args, env) {
@@ -116,6 +190,12 @@ var keywords = {
     },
 
     "->": {
+        // Universal function keyword
+        // -------------------------------------
+        // Usage     : ->(expr, expr, expr, ...)
+        // Returns   : Produced value of last argument
+        // Arguments : Expressions list
+
         arguments: Infinity,
         error_msg: "",
         handler: function(args, env) {
@@ -131,6 +211,13 @@ var keywords = {
     },
 
     "def": {
+        // Variable definition keyword
+        // -------------------------------------
+        // Usage     : def(a, 10)
+        // Returns   : Value of defined variable
+        // Arguments : args[0] - Variable name
+        //             args[1] - Variable value
+
         arguments: 2,
         error_msg: "Variable declaration error.",
         handler: function(args, env) {
@@ -142,6 +229,12 @@ var keywords = {
     },
 
     "out": {
+        // Output keyword
+        // -------------------------------------
+        // Usage     : out("hello world")
+        // Returns   : Output to stdout
+        // Arguments : args[0] - Value
+
         arguments: 1,
         error_msg: "",
         handler: function(args, env) {
@@ -150,6 +243,13 @@ var keywords = {
     },
 
     "fun": {
+        // Function definition keyword
+        // -------------------------------------
+        // Usage     : fun(name, body)
+        // Returns   : Function
+        // Arguments : args[0] - Function name
+        //             args[1] - Function body
+
         arguments: Infinity,
         error_msg: "Function declaration without a function_body.",
         handler: function(args, env) {
