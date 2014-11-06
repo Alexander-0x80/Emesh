@@ -61,7 +61,7 @@ var keywords = {
     },
 
     "**": {
-        // Power  operator
+        // Power operator
         // -------------------------------------
         // Usage     : **(2, 4)
         // Returns   : Power of two arguments
@@ -170,8 +170,8 @@ var keywords = {
         }
     },
 
-    "loop": {
-        // Loop
+    "repeat": {
+        // Repeat until 
         // -------------------------------------
         // Usage     : loop(true, 1)
         // Returns   : false
@@ -199,11 +199,10 @@ var keywords = {
         arguments: Infinity,
         error_msg: "",
         handler: function(args, env) {
-            var self = this;
             var result = false;
             args.forEach(function(arg) {
-                result = self.evaluate(arg, env);
-            });
+                result = this.evaluate(arg, env);
+            }.bind(this));
 
             return result;
         }
@@ -211,7 +210,7 @@ var keywords = {
     },
 
     "def": {
-        // Variable declaration
+        // Variable definition
         // -------------------------------------
         // Usage     : def(a, 10)
         // Returns   : Value of defined variable
@@ -244,7 +243,7 @@ var keywords = {
     },
 
     "fun": {
-        // Function declaration
+        // Function expression
         // -------------------------------------
         // Usage     : fun(arguments *n , body)
         // Returns   : Function
@@ -252,8 +251,12 @@ var keywords = {
         //             args[last] - Function body
 
         arguments: Infinity,
-        error_msg: "Function declaration without a function_body.",
+        error_msg: "",
         handler: function(args, env) {
+            if (!args.length) {
+                throw new SyntaxError("Function declaration without a body.");
+            }
+
             // Arguments come first , body last
             var function_body = args[args.length -1];
             var function_arguments = args.slice(0, args.length -1).map(
