@@ -1,9 +1,9 @@
 {
   "name": "emesh",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "Toy programming language",
-  "main": "runtime.js",
-  "bin": "runtime.js",
+  "main": "src/runtime.js",
+  "bin": "src/runtime.js",
   "scripts": {
     "test": "node node_modules/.bin/mocha -R spec"
   },
