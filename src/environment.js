@@ -6,6 +6,10 @@ var base = {
 
 
 var keywords = {
+
+    // * Context of `this` should be an Interpreter object
+    //   which implements `evaluate` method .
+
     "+": {
         // Addition operator
         // -------------------------------------
@@ -190,7 +194,7 @@ var keywords = {
     },
 
     "->": {
-        // Universal function
+        // New scope function
         // -------------------------------------
         // Usage     : ->(expr, expr, expr, ... )
         // Returns   : Produced value of last argument
@@ -227,6 +231,28 @@ var keywords = {
         }
     },
 
+    "=": {
+        // Variable assignment
+        // -------------------------------------
+        // Usage     : =(a, 10)
+        // Returns   : Value of assignment
+        // Arguments : args[0] - Variable name
+        //             args[1] - New value
+
+        arguments: 2,
+        error_msg: "Assignment error",
+        handler: function(args, env) {
+            var var_name = args[0].value;
+
+            if(env.hasOwnProperty(var_name)) {
+                env[var_name] = this.evaluate(args[1], env);
+                return env[var_name];
+            } else {
+                throw new ReferenceError("Assignment to not existing variable")
+            }
+        }
+    },
+
     "out": {
         // Output
         // -------------------------------------
@@ -259,14 +285,14 @@ var keywords = {
 
             // Arguments come first , body last
             var function_body = args[args.length -1];
-            var function_arguments = args.slice(0, args.length -1).map(
-                    function(expr){
-                        if (expr.type != "word") {
-                            throw new SyntaxError("Function argument must be a word");
-                        }
+            var function_arguments = args.slice(0, args.length -1)
+                .map(function(expr){
+                    if (expr.type != "word") {
+                        throw new SyntaxError("Function argument must be a word");
+                    }
 
-                        return expr.value;
-                    });
+                    return expr.value;
+                });
             
             return function() {
                 if (arguments.length != function_arguments.length) {
