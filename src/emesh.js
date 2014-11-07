@@ -4,7 +4,7 @@ var environment = require("./environment");
 
 
 function Emesh() {
-    this.__version__ = "0.1.3";
+    this.__version__ = "0.1.5";
     this.env = Object.create(environment.base);
     this.parser = new Parser();
     this.interpreter = new Interpreter();

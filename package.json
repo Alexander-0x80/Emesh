@@ -1,6 +1,6 @@
 {
   "name": "emesh",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "Toy programming language",
   "main": "src/runtime.js",
   "bin": "src/runtime.js",

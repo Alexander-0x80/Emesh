@@ -37,12 +37,12 @@ describe("Environment", function() {
 
         describe("Equality", function(){
             it("Arguments are equal", function(){
-                emesh.run("==(2,2,2)")
+                emesh.run("eq(2,2,2)")
                     .should.be.true;
             });
 
             it("Arguments are not equal", function(){
-                emesh.run("==(2,2,1)")
+                emesh.run("eq(2,2,1)")
                     .should.be.false;
             });
         });
@@ -142,17 +142,17 @@ describe("Environment", function() {
         });
 
         it("Valid assignment", function(){
-            emesh.run("=(a,15)");
+            emesh.run("put(a,15)");
             emesh.env.should.have.property("a").equal(15);
         });
 
         it("Invalid assignment", function(){
-            emesh.run.bind(emesh, "=(a)")
+            emesh.run.bind(emesh, "put(a)")
                 .should.throw(SyntaxError);
         });
 
         it("Nonexistent assignment", function(){
-            emesh.run.bind(emesh, "=(b, 7)")
+            emesh.run.bind(emesh, "put(b, 7)")
                 .should.throw(ReferenceError);
         });
 

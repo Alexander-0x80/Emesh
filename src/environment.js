@@ -109,19 +109,19 @@ var keywords = {
         }
     },
 
-    "==": {
+    "eq": {
         // Equality operator
         // -------------------------------------
-        // Usage     : ==(1, 1, 1, ...)
+        // Usage     : eq(1, 1, 1, ...)
         // Returns   : true if all objects are equal, false otherwise
         // Arguments : List of objects for comparison
 
         arguments: Infinity,
         error_msg: "",
         handler: function(args, env) {
-            var arg0 = this.evaluate(args[0]);
+            var arg0 = this.evaluate(args[0], env);
             return args.slice(1).every(function(arg){
-                return  arg0 === this.evaluate(arg);
+                return  arg0 === this.evaluate(arg, env);
             }, this);
         }
     },
@@ -231,10 +231,10 @@ var keywords = {
         }
     },
 
-    "=": {
+    "put": {
         // Variable assignment
         // -------------------------------------
-        // Usage     : =(a, 10)
+        // Usage     : put(a, 10)
         // Returns   : Value of assignment
         // Arguments : args[0] - Variable name
         //             args[1] - New value
