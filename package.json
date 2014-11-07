@@ -1,12 +1,17 @@
 {
   "name": "Emesh",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Toy programming language",
-  "main": "repl.js",
+  "main": "runtime.js",
+  "bin": "runtime.js",
   "scripts": {
     "test": "node node_modules/.bin/mocha -R spec"
   },
-  "author": "Alexander Ovchinnikov",
+  "authors": ["Alexander Ovchinnikov"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alexander-0x80/Emesh.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "chai": "^1.9.2",
