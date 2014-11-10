@@ -195,6 +195,20 @@ describe("Environment", function() {
             .should.equal(0);
     });
 
+    describe("Comments", function(){
+        it("After code", function(){
+            emesh.run("1024 ~~comment").should.equal(1024);
+        });
+
+        it("New line", function(){
+            emesh.run("~~comment\n 1024").should.equal(1024);
+        });
+
+        it("Multiline", function(){
+            emesh.run("~~comment 1\n ~~comment 2\n 1024").should.equal(1024);
+        });
+    });
+
 });
 
 

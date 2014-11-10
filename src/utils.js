@@ -1,8 +1,10 @@
 var utils = {
     trim : function(str) {
-        // Left trim
-        var pos =  str.search(/\S/);
-        return (pos === -1) ? "" : str.slice(pos);
+        // Trim every whitespace or comment
+        // Comments start with : ~~
+
+        var pos = str.match(/(?:(?:\s+)*(?:~~.*)*)*/);
+        return pos ? str.slice(pos[0].length) : str;
     }
 };
 
