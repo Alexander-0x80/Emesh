@@ -190,22 +190,22 @@ describe("Environment", function() {
         });
     });
 
-    it("New scope function", function(){
+    it("Arrow function", function(){
         emesh.run("->(def(a,3),true,45,?(>(a,10),1,0))")
             .should.equal(0);
     });
 
     describe("Comments", function(){
         it("After code", function(){
-            emesh.run("1024 ~~comment").should.equal(1024);
+            emesh.run("1024 //comment").should.equal(1024);
         });
 
         it("New line", function(){
-            emesh.run("~~comment\n 1024").should.equal(1024);
+            emesh.run("// comment\n 1024").should.equal(1024);
         });
 
         it("Multiline", function(){
-            emesh.run("~~comment 1\n ~~comment 2\n 1024").should.equal(1024);
+            emesh.run("//comment 1\n //comment 2\n 1024").should.equal(1024);
         });
     });
 

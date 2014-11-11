@@ -3,7 +3,7 @@ var utils = {
         // Trim every whitespace or comment
         // Comments start with : ~~
 
-        var pos = str.match(/(?:(?:\s+)*(?:~~.*)*)*/);
+        var pos = str.match(/(?:(?:\s+)*(?:\/\/.*)*)*/);
         return pos ? str.slice(pos[0].length) : str;
     }
 };

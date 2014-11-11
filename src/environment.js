@@ -194,7 +194,7 @@ var keywords = {
     },
 
     "->": {
-        // New scope function
+        // Arrow function
         // -------------------------------------
         // Usage     : ->(expr, expr, expr, ... )
         // Returns   : Produced value of last argument
