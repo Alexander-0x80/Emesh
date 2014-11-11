@@ -13,7 +13,7 @@ $ npm install -g emesh
 ### Use
 
 ```
-# Start interpreter
+# Launch REPL
 $ emesh
 
 # Execute source file
