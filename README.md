@@ -1,4 +1,4 @@
-![img](misc/emesh.png) Emesh
+![img](etc/emesh.png) Emesh
 =====
 
 > Toy programming language created for fun
@@ -39,6 +39,9 @@ $ emesh /path/to/input_file.em
     // Multiplication
     *(2,8)        // 16
     *(2,2,2,2)    // 16
+
+    // Power
+    **(2,16)      // 65536
     
     // Division
     /(12,6)       // 2
@@ -54,9 +57,6 @@ $ emesh /path/to/input_file.em
     eq(2,2)       // true
     eq(2,1)       // false
     eq(2,2,2,2)   // true
-    
-    // Power
-    **(2,16)      // 65536
     
     
     // Variables
@@ -128,3 +128,4 @@ $ emesh /path/to/input_file.em
 ```
 
 
+_Emesh leaf logo by:_ [Kawiku](http://kawiku.deviantart.com/)
