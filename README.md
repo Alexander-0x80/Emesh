@@ -1,4 +1,4 @@
-Emesh
+[!img](misc/emesh.png) Emesh
 =====
 
 > Toy programming language created for fun
@@ -15,7 +15,6 @@ $ npm install -g emesh
 ```
 # Start interpreter
 $ emesh
-
 
 # Execute source file
 $ emesh /path/to/input_file.em
@@ -82,7 +81,7 @@ $ emesh /path/to/input_file.em
     // Flow control 
     ?(true,1,0)     // 1
     ?(false,1,0)    // 0
-    ?(>(10,5),"bigger,"smaller)    // bigger
+    ?(>(10,5),"bigger,"smaller")    // bigger
     
     def(n,20)
     repeat(>(n,10),put(n,-(n,1)))
@@ -115,7 +114,6 @@ $ emesh /path/to/input_file.em
 ### Example program
 
 ```
-
     // FizzBuzz
     
     ->
