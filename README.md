@@ -1,4 +1,4 @@
-[!img](misc/emesh.png) Emesh
+![img](misc/emesh.png) Emesh
 =====
 
 > Toy programming language created for fun
