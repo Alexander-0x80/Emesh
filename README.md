@@ -22,7 +22,7 @@ $ emesh /path/to/input_file.em
 
 ### Syntax
 
-``` 
+```javascript
     // Output
     out("Hello World")   // Hello World
     out(5)               // 5
@@ -81,7 +81,7 @@ $ emesh /path/to/input_file.em
     // Flow control 
     ?(true,1,0)     // 1
     ?(false,1,0)    // 0
-    ?(>(10,5),"bigger,"smaller")    // bigger
+    ?(>(10,5),"bigger","smaller")    // bigger
     
     def(n,20)
     repeat(>(n,10),put(n,-(n,1)))
