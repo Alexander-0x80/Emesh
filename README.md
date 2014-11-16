@@ -113,7 +113,7 @@ $ emesh /path/to/input_file.em
 
 ### Example program
 
-```
+```javascript
     // FizzBuzz
     
     ->
