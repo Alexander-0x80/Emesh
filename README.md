@@ -94,7 +94,7 @@ $ emesh /path/to/input_file.em
     ->(def(x,33),put(x,11), x)
     // 11
     ?(true, ->(def(x,10), +(x,1)), ->(def(y,20), +(y,1)))
-    // 10
+    // 11
     ?(false, ->(def(x,10), +(x,1)), ->(def(y,20), +(y,1)))
     // 21
     ->(def(i, 0),repeat(<(i,10), ->(out(i), put(i, +(i, 1)))))
